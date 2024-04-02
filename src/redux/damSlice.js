@@ -17,7 +17,7 @@ export const damsSlice = createSlice({
   initialState: {
     totalDams: 0,
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
-    error: null,
+    error: null
   },
   reducers: {},
   extraReducers(builder) {
@@ -28,6 +28,7 @@ export const damsSlice = createSlice({
       .addCase(fetchDams.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.totalDams = action.payload;
+        state.data = action.payload;
       })
       .addCase(fetchDams.rejected, (state, action) => {
         state.status = 'failed';

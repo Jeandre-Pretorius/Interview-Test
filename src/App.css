@@ -127,3 +127,17 @@
   scrollbar-color: grey #2c3e50; /* Scrollbar handle color, Scrollbar track color */
 }
 
+.loader {
+  display: inline-block;
+  font-size: 62px;
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

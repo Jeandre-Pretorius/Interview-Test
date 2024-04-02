@@ -8,11 +8,16 @@ export const fetchPopulation = createAsyncThunk(
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    return data.reduce((total, item) => {
+    const total = data.reduce((total, item) => {
       // Attempt to parse the population, default to 0 if NaN
       const population = parseInt(item.population, 10);
       return total + (isNaN(population) ? 0 : population);
     }, 0);
+
+    return{
+      data: data,
+      totalPopulation: total
+    }
   }
 );
 
@@ -22,6 +27,7 @@ export const populationSlice = createSlice({
     totalPopulation: 0,
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
+    data: []
   },
   reducers: {},
   extraReducers(builder) {
@@ -31,7 +37,8 @@ export const populationSlice = createSlice({
       })
       .addCase(fetchPopulation.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.totalPopulation = action.payload;
+        state.totalPopulation = action.payload.totalPopulation;
+        state.data = action.payload.data;
       })
       .addCase(fetchPopulation.rejected, (state, action) => {
         state.status = 'failed';
