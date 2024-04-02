@@ -1,7 +1,3 @@
-# Congratulations! This is the first place you should have looked.
-
-Please add your name here if you read t {First Name} {Last Name}he README:
-
 ## Start Here
 
 Make sure that you are using node version 18
