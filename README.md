@@ -11,7 +11,6 @@ Run the command: `node api.js` to start the API server which you will need to fe
 
 This will host the API on [http://localhost:8008](http://localhost:8008) 
 
-And there you go your api is up and running and you can view the endpoints here: {INSERT CONFLUENCE DOCUMENT}
 
 ## Getting the Front End up and running:
 
