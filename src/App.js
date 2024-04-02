@@ -54,9 +54,8 @@ function App() {
     intensity: 2,
     radiusPixels: 30,
     threshold: 0.03,
-    colorRange: [[240, 249, 232],[204, 235, 197], [168, 221, 181], [123, 204, 196], [67, 162, 202], [8, 104, 172]],
+    colorRange: [[241, 238, 246],[208, 209, 230], [166, 189, 219], [116, 169, 207], [43, 140, 190], [4, 90, 141]],
     getPosition: (d) => {
-      console.log(d.COORDINATES);
       return d.COORDINATES;
     },
     getWeight: (d) => d.WEIGHT
@@ -70,7 +69,7 @@ function App() {
      pickable: true,
      extruded: true,
      radius: 2000,
-     colorRange: [[255, 255, 204],[199, 233, 180], [127, 205, 187], [65, 182, 196], [44, 127, 184], [37, 52, 148]],
+     colorRange: [[241, 238, 246],[208, 209, 230], [166, 189, 219], [116, 169, 207], [43, 140, 190], [4, 90, 141]],
      elevationScale: 100,
      getPosition: (d) => {
        const latitude = parseFloat(d.latitude_deg) + (parseFloat(d.lat_min) / 60) + (parseFloat(d.lat_sec) / 3600);
@@ -90,13 +89,13 @@ function App() {
         <button
             className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`}
             onClick={toggleSidebar}
-            style={{left: isSidebarOpen ? '320px' : '1px'}}
+            style={{left: isSidebarOpen ? '500px' : '1px'}}
         >
           <div className="icon"></div>
         </button>
         <div style={{flex: 1, position: 'relative'}}>
           {/* Add layers in the DeckGL component */}
-          <DeckGL initialViewState={viewState} controller={true} layers={layers} >
+          <DeckGL initialViewState={viewState} controller={true} layers={[layers]} >
             <Map
                 mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
                 style={{ width: '100%', height: '100%', color: 'red' }}
